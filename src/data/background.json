@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "color": "LightSalmon"
+  },
+  {
+    "id": 2,
+    "color": "lightblue"
+  },
+  {
+    "id": 3,
+    "color": "NavajoWhite"
+  },
+  {
+    "id": 4,
+    "color": "DarkSeaGreen"
+  },
+  {
+    "id": 5,
+    "color": "Khaki"
+  },
+  {
+    "id": 6,
+    "color": "LightSteelBlue"
+  },
+  {
+    "id": 7,
+    "color": "LightSkyBlue"
+  },
+  {
+    "id": 8,
+    "color": "LightPink"
+  },
+  {
+    "id": 9,
+    "color": "RosyBrown"
+  }
+]

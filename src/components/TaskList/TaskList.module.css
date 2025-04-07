@@ -1,0 +1,36 @@
+.taskList {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.category {
+  background: #f4f4f42f;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.list {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  align-items: center;
+  gap: 20px;
+}
+
+.item {
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .list {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    align-items: center;
+    gap: 10px;
+  }
+}

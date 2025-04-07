@@ -1,0 +1,68 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dark-theme {
+  color: #ffffff;
+}
+
+.dark-theme button {
+  color: #ffffff;
+}
+.toggleBtn {
+  border: none;
+  background-color: transparent;
+}
+
+.moonIcon {
+  color: #e9e5e5;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 30px;
+}
+
+.sunIcon {
+  color: rgb(242, 211, 52);
+  width: 35px;
+  height: 35px;
+  margin-bottom: 30px;
+}
+
+.topWrapper {
+  display: grid;
+  grid-template-columns: 2fr 2px 1fr;
+  gap: 20px;
+}
+
+.verticalSeparator {
+  background-color: rgba(255, 255, 255, 0.431);
+  width: 2px;
+  height: 100%;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Brush Script MT", cursive;
+  font-weight: bold;
+  font-size: 70px;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+}

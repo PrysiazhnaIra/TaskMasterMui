@@ -1,0 +1,86 @@
+.btn {
+  border: none;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  transition: all 0.2s linear;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.5);
+}
+
+.editIcon {
+  color: rgb(41, 91, 49);
+}
+
+.dltIcon {
+  color: #d27979;
+}
+
+.text {
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  display: block;
+  font-weight: bold;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-color: #7dba852f;
+  padding: 15px;
+  gap: 10px;
+}
+
+/* Загортка для кастомного чекбокса */
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Ховаємо стандартний чекбокс */
+.hiddenCheckbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Кастомний чекбокс */
+.customCheckbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #53a064b1;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
+}
+
+/* Додаємо галочку, коли чекбокс активний */
+.hiddenCheckbox:checked + .customCheckbox {
+  background-color: #2f742661;
+  border-color: #2a7555;
+}
+
+.hiddenCheckbox:checked + .customCheckbox::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

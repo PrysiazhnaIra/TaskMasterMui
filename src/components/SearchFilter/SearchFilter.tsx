@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import css from "./SearchFilter.module.css";
 import { RootState } from "../../redux/store";
 import { setTextFilter } from "../../redux/filtersSlice";
+import { TextField } from "@mui/material";
 
 type FilterProps = {
   value: string;
@@ -13,13 +13,12 @@ export default function Filter() {
   const textFilter = useSelector((state: RootState) => state.filters.text);
 
   return (
-    <div className={css.inputContainer}>
-      <input
-        type="text"
-        value={textFilter}
-        placeholder="Search your task..."
-        onChange={(e) => dispatch(setTextFilter(e.target.value))}
-      />
-    </div>
+    <TextField
+      fullWidth
+      variant="outlined"
+      value={textFilter}
+      placeholder="Search your task..."
+      onChange={(e) => dispatch(setTextFilter(e.target.value))}
+    />
   );
 }

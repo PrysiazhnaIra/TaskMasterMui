@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import s from "./CategoryFilter.module.css";
+import { Box, Button, Typography } from "@mui/material";
 
 type TaskFilterProps = {
   selectedCategory: string;
@@ -13,29 +14,43 @@ export default function CategoryFilter({
 }: TaskFilterProps) {
   const tasks = useSelector((state: RootState) => state.tasks.items);
 
-  // Фіксований список категорій
   const defaultCategories = ["All", "Study", "Work", "Household"];
 
-  // Отримуємо унікальні категорії із задач
   const taskCategories = new Set(tasks.map((task) => task.category));
 
-  // Отримуємо унікальні категорії
   const categories = [...new Set([...defaultCategories, ...taskCategories])];
 
   return (
     <div className={s.filterWrapper}>
-      <h3 className={s.title}>Filter your tasks by category:</h3>
-      <div className={s.filterButtons}>
+      <Typography variant="h6" className={s.title}>
+        Filter your tasks by category:
+      </Typography>
+      <Box className={s.filterButtons}>
         {categories.map((category) => (
-          <button
+          <Button
             key={category}
-            className={selectedCategory === category ? s.active : s.btn}
             onClick={() => onCategoryChange(category)}
+            sx={{
+              color: "white",
+              padding: "10px 15px",
+              cursor: "pointer",
+              borderRadius: "8px",
+              backgroundColor:
+                selectedCategory === category
+                  ? "rgba(0, 123, 255, 0.8)"
+                  : "rgba(0, 123, 255, 0.292)",
+              "&:hover": {
+                backgroundColor:
+                  selectedCategory === category
+                    ? "rgba(0, 123, 255, 0.9)"
+                    : "rgba(0, 123, 255, 0.4)",
+              },
+            }}
           >
             {category}
-          </button>
+          </Button>
         ))}
-      </div>
+      </Box>
     </div>
   );
 }

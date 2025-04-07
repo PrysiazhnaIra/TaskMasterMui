@@ -1,10 +1,22 @@
 import { useDispatch } from "react-redux";
 import css from "./Form.module.css";
-import { IoMdAdd } from "react-icons/io";
+
 import { addTask } from "../../redux/tasksSlice";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
-import { IoIosArrowDown } from "react-icons/io";
+import {
+  FormControl,
+  IconButton,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+} from "@mui/material";
+import {
+  IoMdAdd as AddIcon,
+  IoIosArrowDown as ArrowDownIcon,
+} from "react-icons/io";
 
 type FormProps = {
   onAdd: (task: { id: string | number; text: string }) => void;
@@ -44,29 +56,51 @@ export default function Form() {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <select
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-        className={css.selectWrapper}
-      >
-        <option value="Study">Study</option>
-        <option value="Work">Work</option>
-        <option value="Household">Household</option>
-      </select>
-      <IoIosArrowDown className={css.selectArrow} />
-      <div className={css.inputsWrapper}>
-        <input
-          className={css.field}
-          type="text"
+      <FormControl fullWidth sx={{ mb: "20px" }}>
+        <InputLabel id="category-select-label">Category</InputLabel>
+        <Select
+          fullWidth
+          labelId="category-select-label"
+          value={category}
+          label="Category"
+          onChange={(e) => setCategory(e.target.value)}
+          IconComponent={ArrowDownIcon}
+          sx={{
+            "& .MuiSelect-icon": {
+              right: 8,
+              color: "text.secondary",
+            },
+          }}
+        >
+          <MenuItem value="Study">Study</MenuItem>
+          <MenuItem value="Work">Work</MenuItem>
+          <MenuItem value="Household">Household</MenuItem>
+        </Select>
+      </FormControl>
+
+      <Stack direction="row" spacing={1}>
+        <TextField
+          fullWidth
           name="text"
+          value={text}
+          variant="outlined"
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter your new task..."
         />
-
-        <button type="submit" className={css.btn} onClick={handleAdd}>
-          <IoMdAdd className={css.addIcon} />
-        </button>
-      </div>
+        <IconButton
+          type="submit"
+          onClick={handleAdd}
+          color="primary"
+          sx={{
+            color: "white",
+            "&:hover": {
+              color: "black",
+            },
+          }}
+        >
+          <AddIcon />
+        </IconButton>
+      </Stack>
     </form>
   );
 }

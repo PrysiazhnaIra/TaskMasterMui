@@ -17,26 +17,3 @@
   justify-content: flex-end;
   gap: 5px;
 }
-
-.btn {
-  font-size: 14px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  background-color: rgba(90, 161, 136, 0.52);
-  border-radius: 8px;
-  transition: all 0.2s linear;
-}
-
-.btn:hover,
-.btn:focus {
-  transform: scale(1.1);
-}
-
-.active {
-  background-color: rgba(198, 100, 122, 0.292);
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  border-radius: 8px;
-}

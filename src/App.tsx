@@ -10,63 +10,40 @@ import StatusFilter from "./components/StatusFilter/StatusFilter";
 import TaskCounter from "./components/TaskCounter/TaskCounter";
 import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
 import { Toaster } from "react-hot-toast";
-// import { useDispatch } from "react-redux";
-// import { fetchTasks } from "./redux/operations";
-// import { AppDispatch } from "./redux/store";
-import { FaSun, FaMoon } from "react-icons/fa";
+import { ThemeProvider, CssBaseline, IconButton } from "@mui/material";
+import { darkTheme, lightTheme } from "./theme";
+import { Brightness4, Brightness7 } from "@mui/icons-material";
 
 function App() {
-  // Ініціалізація tasks
   const [tasks, setTasks] = useState(() => {
     const storedTasks = window.localStorage.getItem("tasks");
     return storedTasks ? JSON.parse(storedTasks) : initialTasks;
   });
 
-  // Ініціалізація currentColor
   const [currentColor, setCurrentColor] = useState(() => {
     return window.localStorage.getItem("backgroundColor") || "#92d192";
   });
 
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved === "dark";
+  });
 
-  // const dispatch = useDispatch<AppDispatch>();
-  // const handleFetchTasks = () => {
-  //   dispatch(fetchTasks());
-  // };
+  useEffect(() => {
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+  }, [isDarkMode]);
 
-  // Збереження tasks в localStorage при їх зміні
+  const toggleTheme = () => setIsDarkMode((prev) => !prev);
+
   useEffect(() => {
     window.localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  // Збереження currentColor в localStorage при його зміні
   useEffect(() => {
     window.localStorage.setItem("backgroundColor", currentColor);
   }, [currentColor]);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.body.classList.add("dark-theme");
-      document.body.classList.remove("light-theme");
-    } else {
-      document.body.classList.add("light-theme");
-      document.body.classList.remove("dark-theme");
-    }
-    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
-  }, [isDarkMode]);
-
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-  };
 
   const handleChangeColor = (color: string) => {
     setCurrentColor(color);
@@ -75,19 +52,17 @@ function App() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className={isDarkMode ? "dark-theme" : "container"}>
-      <button onClick={toggleTheme} className="toggleBtn">
-        {isDarkMode ? (
-          <FaMoon className="moonIcon" />
-        ) : (
-          <FaSun className="sunIcon" />
-        )}{" "}
-      </button>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <CssBaseline />
+      <div style={{ padding: "1rem" }}>
+        <IconButton onClick={toggleTheme} color="inherit">
+          {isDarkMode ? <Brightness7 /> : <Brightness4 />}
+        </IconButton>
+      </div>
 
       <Toaster />
       <div className="topWrapper">
         <div>
-          {/* <button onClick={handleFetchTasks}>Отримати завдання</button> */}
           <Background
             currentColor={currentColor}
             onChangeColor={handleChangeColor}
@@ -121,7 +96,7 @@ function App() {
       >
         © {currentYear} Ira Prysiazhna. All rights reserved.
       </p>
-    </div>
+    </ThemeProvider>
   );
 }
 

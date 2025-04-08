@@ -9,7 +9,7 @@
   },
   {
     "id": 3,
-    "color": "NavajoWhite"
+    "color": "SeaGreen"
   },
   {
     "id": 4,
@@ -17,22 +17,27 @@
   },
   {
     "id": 5,
-    "color": "Khaki"
+    "color": "RoyalBlue"
   },
+
   {
     "id": 6,
-    "color": "LightSteelBlue"
+    "color": "GoldenRod"
   },
   {
     "id": 7,
-    "color": "LightSkyBlue"
+    "color": "LightSteelBlue"
   },
   {
     "id": 8,
-    "color": "LightPink"
+    "color": "Brown"
   },
   {
     "id": 9,
+    "color": "LightPink"
+  },
+  {
+    "id": 10,
     "color": "RosyBrown"
   }
 ]

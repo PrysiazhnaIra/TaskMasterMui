@@ -18,19 +18,16 @@ export default function StatusFilter() {
           variant="contained"
           onClick={() => dispatch(setStatusFilter("all"))}
           sx={{
-            color: "white",
+            fontWeight: "bold",
+            color: "primary.contrastText",
             backgroundColor:
-              filter === "all"
-                ? "rgba(0, 123, 255, 0.8)"
-                : "rgba(0, 123, 255, 0.292)",
+              filter === "all" ? "primary.dark" : "primary.light",
             padding: "10px 15px",
             cursor: "pointer",
             borderRadius: "8px",
             "&:hover": {
               backgroundColor:
-                filter === "all"
-                  ? "rgba(0, 123, 255, 1)"
-                  : "rgba(0, 123, 255, 0.5)",
+                filter === "all" ? "primary.dark" : "primary.light",
             },
           }}
         >
@@ -41,19 +38,16 @@ export default function StatusFilter() {
           variant="contained"
           onClick={() => dispatch(setStatusFilter("active"))}
           sx={{
-            color: "white",
+            fontWeight: "bold",
+            color: "primary.contrastText",
             backgroundColor:
-              filter === "active"
-                ? "rgba(0, 123, 255, 0.8)"
-                : "rgba(0, 123, 255, 0.292)",
+              filter === "active" ? "primary.dark" : "primary.light",
             padding: "10px 15px",
             cursor: "pointer",
             borderRadius: "8px",
             "&:hover": {
               backgroundColor:
-                filter === "active"
-                  ? "rgba(0, 123, 255, 1)"
-                  : "rgba(0, 123, 255, 0.5)",
+                filter === "active" ? "primary.dark" : "primary.light",
             },
           }}
         >
@@ -64,19 +58,16 @@ export default function StatusFilter() {
           variant="contained"
           onClick={() => dispatch(setStatusFilter("completed"))}
           sx={{
-            color: "white",
+            fontWeight: "bold",
+            color: "primary.contrastText",
             backgroundColor:
-              filter === "completed"
-                ? "rgba(0, 123, 255, 0.8)"
-                : "rgba(0, 123, 255, 0.292)",
+              filter === "completed" ? "primary.dark" : "primary.light",
             padding: "10px 15px",
             cursor: "pointer",
             borderRadius: "8px",
             "&:hover": {
               backgroundColor:
-                filter === "completed"
-                  ? "rgba(0, 123, 255, 1)"
-                  : "rgba(0, 123, 255, 0.5)",
+                filter === "completed" ? "primary.dark" : "primary.light",
             },
           }}
         >

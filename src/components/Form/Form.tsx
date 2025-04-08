@@ -56,7 +56,7 @@ export default function Form() {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <FormControl fullWidth sx={{ mb: "20px" }}>
+      <FormControl fullWidth sx={{ mb: "40px" }}>
         <InputLabel id="category-select-label">Category</InputLabel>
         <Select
           fullWidth
@@ -78,29 +78,31 @@ export default function Form() {
         </Select>
       </FormControl>
 
-      <Stack direction="row" spacing={1}>
-        <TextField
-          fullWidth
-          name="text"
-          value={text}
-          variant="outlined"
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Enter your new task..."
-        />
-        <IconButton
-          type="submit"
-          onClick={handleAdd}
-          color="primary"
-          sx={{
-            color: "white",
-            "&:hover": {
-              color: "black",
-            },
-          }}
-        >
-          <AddIcon />
-        </IconButton>
-      </Stack>
+      {/* <Stack direction="row" spacing={1} > */}
+      <TextField
+        className={css.inputWrapper}
+        fullWidth
+        name="text"
+        value={text}
+        variant="outlined"
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter your new task..."
+      />
+      <IconButton
+        className={css.addIconWrap}
+        type="submit"
+        onClick={handleAdd}
+        color="primary"
+        sx={{
+          color: "white",
+          "&:hover": {
+            color: "black",
+          },
+        }}
+      >
+        <AddIcon className={css.addIcon} />
+      </IconButton>
+      {/* </Stack> */}
     </form>
   );
 }

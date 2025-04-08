@@ -67,7 +67,9 @@ function App() {
             currentColor={currentColor}
             onChangeColor={handleChangeColor}
           />
-          <h1 className="title">Enjoy your progress:</h1>
+          <h1 className="title" color="primary.contrastText">
+            Enjoy your progress:
+          </h1>
 
           <TaskCounter />
           <Form />

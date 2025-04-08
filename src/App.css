@@ -11,30 +11,9 @@
   justify-content: space-between;
 }
 
-.dark-theme {
-  color: #ffffff;
-}
-
-.dark-theme button {
-  color: #ffffff;
-}
 .toggleBtn {
   border: none;
   background-color: transparent;
-}
-
-.moonIcon {
-  color: #e9e5e5;
-  width: 35px;
-  height: 35px;
-  margin-bottom: 30px;
-}
-
-.sunIcon {
-  color: rgb(242, 211, 52);
-  width: 35px;
-  height: 35px;
-  margin-bottom: 30px;
 }
 
 .topWrapper {

@@ -31,19 +31,30 @@ export default function CategoryFilter({
             key={category}
             onClick={() => onCategoryChange(category)}
             sx={{
-              color: "white",
+              color:
+                selectedCategory === category
+                  ? "primary.contrastText"
+                  : "text.primary",
               padding: "10px 15px",
               cursor: "pointer",
               borderRadius: "8px",
+              fontWeight: "bold",
               backgroundColor:
                 selectedCategory === category
-                  ? "rgba(0, 123, 255, 0.8)"
-                  : "rgba(0, 123, 255, 0.292)",
+                  ? "primary.dark"
+                  : "primary.light",
               "&:hover": {
+                color: "primary.contrastText",
                 backgroundColor:
                   selectedCategory === category
-                    ? "rgba(0, 123, 255, 0.9)"
-                    : "rgba(0, 123, 255, 0.4)",
+                    ? "primary.dark"
+                    : "primary.light",
+              },
+              "&:focus": {
+                color:
+                  selectedCategory === category
+                    ? "primary.contrastText"
+                    : "text.primary",
               },
             }}
           >
